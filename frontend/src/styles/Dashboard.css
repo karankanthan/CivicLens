@@ -1,0 +1,27 @@
+/* ===== DASHBOARD ===== */
+
+.dashboard {
+  padding: 40px 0;
+}
+
+.dashboard h2 {
+  font-size: 34px;
+  color: #0a3cff;
+  margin-bottom: 30px;
+}
+
+.dashboard .card {
+  margin-bottom: 25px;
+}
+
+.dashboard img {
+  width: 100%;
+  max-width: 280px;
+  margin-top: 12px;
+  border-radius: 14px;
+  transition: transform 0.3s ease;
+}
+
+.dashboard img:hover {
+  transform: scale(1.06);
+}
