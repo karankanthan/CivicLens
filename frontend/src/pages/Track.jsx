@@ -7,7 +7,7 @@ export default function Track() {
   const [data, setData] = useState(null);
 
   const track = async () => {
-    const res = await axios.get(`http://localhost:5000/api/complaints/track/${id}`);
+    const res = await axios.get(`https://civiclens-oo9v.onrender.com/api/complaints/track/${id}`);
     setData(res.data);
   };
 

@@ -13,7 +13,7 @@ export default function Report() {
     data.append("description", form.description);
     data.append("image", image);
 
-    const res = await axios.post("http://localhost:5000/api/complaints", data);
+    const res = await axios.post("https://civiclens-oo9v.onrender.com/api/complaints", data);
     alert("Tracking ID: " + res.data.trackingId);
   };
 

@@ -6,7 +6,7 @@ export default function Dashboard() {
   const [complaints, setComplaints] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/complaints", {
+    axios.get("https://civiclens-oo9v.onrender.com/api/complaints", {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   const updateStatus = async (id, status) => {
     await axios.put(
-      `http://localhost:5000/api/complaints/${id}`,
+      `https://civiclens-oo9v.onrender.com/api/complaints/${id}`,
       { status, authorityResponse: "Inspection completed" },
       {
         headers: {
@@ -37,7 +37,7 @@ export default function Dashboard() {
           <p><b>Status:</b> {c.status}</p>
 
           <img
-            src={`http://localhost:5000/uploads/${c.image}`}
+            src={`https://civiclens-oo9v.onrender.com/uploads/${c.image}`}
             alt="evidence"
             width="250"
           />

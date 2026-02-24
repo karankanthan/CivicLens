@@ -6,7 +6,7 @@ export default function Login() {
   const [form, setForm] = useState({});
 
   const login = async () => {
-    const res = await axios.post("http://localhost:5000/api/auth/login", form);
+    const res = await axios.post("https://civiclens-oo9v.onrender.com/api/auth/login", form);
     localStorage.setItem("token", res.data.token);
     window.location = "/dashboard";
   };
