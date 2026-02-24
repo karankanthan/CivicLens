@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../styles/Dashboard.css";
 
 export default function Dashboard() {
   const [complaints, setComplaints] = useState([]);
@@ -26,7 +27,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="container">
+    <div className="dashboard">
       <h2>Authority Dashboard</h2>
 
       {complaints.map(c => (
@@ -41,39 +42,13 @@ export default function Dashboard() {
             width="250"
           />
 
-          <div>
+          <div className="actions">
             <button onClick={() => updateStatus(c._id, "Pending")}>
               Mark Pending
             </button>
 
             <button onClick={() => updateStatus(c._id, "Action Taken")}>
-              Action Takenimport { useEffect, useState } from "react";
-import axios from "axios";
-import "../styles/Dashboard.css";
-
-export default function Dashboard() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/complaints", {
-      headers: { Authorization: localStorage.getItem("token") }
-    }).then(res => setData(res.data));
-  }, []);
-
-  return (
-    <div className="dashboard">
-      <h2>Authority Dashboard</h2>
-      {data.map(c => (
-        <div key={c._id} className="card">
-          <h3>{c.category}</h3>
-          <p>{c.location}</p>
-          <p>Status: {c.status}</p>
-          <img src={`http://localhost:5000/uploads/${c.image}`} width="250"/>
-        </div>
-      ))}
-    </div>
-  );
-}
+              Action Taken
             </button>
           </div>
         </div>
