@@ -7,20 +7,45 @@ export default function Track() {
   const [data, setData] = useState(null);
 
   const track = async () => {
-    const res = await axios.get(`https://civiclens-oo9v.onrender.com/api/complaints/track/${id}`);
-    setData(res.data);
+    try {
+      // 🔹 API call
+      const res = await axios.get(
+        `http://localhost:5000/api/complaints/track/${id}`
+      );
+
+      setData(res.data);
+
+      // ✅ INSERT HERE (AFTER DATA IS SHOWN)
+      setTimeout(() => {
+        window.location = "/";
+      }, 3000);
+
+    } catch (err) {
+      alert("Invalid Tracking ID");
+    }
   };
 
   return (
     <div className="track card">
       <h2>Track Complaint</h2>
-      <input placeholder="Tracking ID" onChange={e => setId(e.target.value)} />
+
+      <input
+        placeholder="Tracking ID"
+        onChange={e => setId(e.target.value)}
+      />
+
       <button onClick={track}>Track</button>
 
       {data && (
         <div className="card result">
-          <p>Status: {data.status}</p>
-          <p>Response: {data.authorityResponse || "Not updated"}</p>
+          <p><b>Status:</b> {data.status}</p>
+          <p>
+            <b>Response:</b>{" "}
+            {data.authorityResponse || "Not updated"}
+          </p>
+          <p style={{ fontSize: "13px", color: "#555" }}>
+            Redirecting to home in 3 seconds...
+          </p>
         </div>
       )}
     </div>
