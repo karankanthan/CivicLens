@@ -10,7 +10,7 @@ export default function Track() {
     try {
       // 🔹 API call
       const res = await axios.get(
-        `http://localhost:5000/api/complaints/track/${id}`
+        `https://civiclens-oo9v.onrender.com/api/complaints/track/${id}`
       );
 
       setData(res.data);

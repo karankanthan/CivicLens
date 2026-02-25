@@ -7,7 +7,7 @@ export default function Home() {
   const [selected, setSelected] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/complaints/public")
+    axios.get("https://civiclens-oo9v.onrender.com/api/complaints/public")
       .then(res => setIssues(res.data));
   }, []);
 
